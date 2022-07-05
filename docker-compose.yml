@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - "3308:3306"
+#  3306 - занят локальной БД, пробросил на 3308
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
