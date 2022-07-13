@@ -24,7 +24,6 @@ public abstract class AbstractRobot {
     private int creationYear;
     private int energyReserve;
     private RobotTools weapon;
-    private static boolean energyBlocker = false;
     private static String energyStatus = "full";
 
     private static final int costDieselPerAction = 15;
@@ -52,11 +51,6 @@ public abstract class AbstractRobot {
         this.creationYear = creationYear;
     }
 
-    public AbstractRobot() {
-
-    }
-
-
     /**
      * @param type - robot type
      * @return - robot instance
@@ -71,6 +65,7 @@ public abstract class AbstractRobot {
      * @return - remaining energy as a percentage of service life
      */
     public int countAtomicEnergy(int creationYear) {
+
         if (energyStatus.equals("empty")) {
             creationYear = LocalDate.now().getYear();
         }
@@ -118,8 +113,8 @@ public abstract class AbstractRobot {
                 String inputString = in.nextLine();
                 while (!inputString.equalsIgnoreCase(currentEnergyType.toString()) || !inputString.equalsIgnoreCase("N")) {
                     if (inputString.equalsIgnoreCase(currentEnergyType.toString())) {
-                        System.out.println("YOU: ¯\\_(ツ)_/¯  Here buddy hold your fuel!");
-                        System.out.println("ROBOT: (◕‿◕)  Thank you Master, you are the best!");
+                        System.out.println("YOU: Here buddy hold your fuel!");
+                        System.out.println("ROBOT: Thank you Master, you are the best!");
                         workCounter = 1;
                         energyStatus = "empty";
                         break;
@@ -274,29 +269,37 @@ public abstract class AbstractRobot {
      * @return - robot instance
      */
     public AbstractRobot setCreationYear(int creationYear) {
-        if (creationYear > LocalDate.now().getYear()) {
-            System.out.println("SYSTEM: Incorrect value: creationYear = " + creationYear + ". The value cannot be greater than the current " + LocalDate.now().getYear() + " year! Please select other creation Year!");
-            System.exit(0);
-        } else {
-            this.creationYear = creationYear;
+        if (creationYear > LocalDate.now().getYear() || creationYear < 0) {
+            do {
+                System.out.println("SYSTEM: Incorrect value: creationYear = " + creationYear + ". The value cannot be greater than the current " + LocalDate.now().getYear() + " year! Please select other creation Year!");
+                Scanner in = new Scanner(System.in);
+                System.out.print("SYSTEM: Input new value... ");
+                String inputString = in.nextLine();
+                creationYear = Integer.parseInt(inputString);
+            } while (creationYear > LocalDate.now().getYear() || creationYear < 0);
         }
+        this.creationYear = creationYear;
         return this;
     }
 
     /**
      * Method for Energy Reserve setting
-     * gives an error message if the energy source is set to more than 100%
+     * gives an error message if the energy source is set to more than 100% or less than 1%
      *
      * @param energyReserve -percentage of energy source
      * @return - robot instance
      */
     public AbstractRobot setEnergyReserve(int energyReserve) {
-        if (energyReserve > 100) {
-            System.out.println("SYSTEM: Incorrect value: energyReserve = " + energyReserve + ". The value cannot be greater than 100%!");
-            System.exit(0);
-        } else {
-            this.energyReserve = energyReserve;
+        if (energyReserve > 100 || energyReserve < 1) {
+            do {
+                System.out.println("SYSTEM: Incorrect value: energyReserve = " + energyReserve + "! It must be from 1 to 100");
+                Scanner in = new Scanner(System.in);
+                System.out.print("SYSTEM: Input new value... ");
+                String inputString = in.nextLine();
+                energyReserve = Integer.parseInt(inputString);
+            } while (energyReserve > 100 || energyReserve < 1);
         }
+        this.energyReserve = energyReserve;
         return this;
     }
 

@@ -9,15 +9,9 @@ import static qa.robots.RobotType.FIGHTING;
 //РЕАЛИЗОВАНО НАСЛЕДОВАНИЕ
 public class FightingRobot extends AbstractRobot {
 
-    public FightingRobot(RobotType robotType, RobotName name, RobotMovement movement, RobotEnergy energy, int energyReserve, int creationYear, RobotTools weapon, String shNotify, String strNotify) {
+    public FightingRobot(RobotType robotType, RobotName name, RobotMovement movement, RobotEnergy energy, int energyReserve, int creationYear, RobotTools weapon) {
         super(robotType, name, movement, energy, energyReserve, creationYear, weapon);
-        shootingNotify = shNotify;
-        strikingNotify = strNotify;
     }
-
-    String shootingNotify;
-    String strikingNotify;
-
 
     /**
      * method for the robot to perform an action
@@ -55,9 +49,9 @@ public class FightingRobot extends AbstractRobot {
      */
     public void useWeapon() {
         if (getWeapon().equals(AUTOMATIC_RIFLE)) {
-            System.out.println(shootingNotify);
+            System.out.println("ROBOT ACTION: Shooting");
         } else {
-            System.out.println(strikingNotify);
+            System.out.println("ROBOT ACTION: Striking");
         }
     }
 

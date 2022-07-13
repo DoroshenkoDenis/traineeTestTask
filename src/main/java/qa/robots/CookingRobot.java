@@ -9,10 +9,6 @@ public class CookingRobot extends AbstractRobot {
         super(robotType, name, movement, energy, energyReserve, creationYear);
     }
 
-    public CookingRobot(RobotType robotType) {
-        super();
-    }
-
     @Override
     public AbstractRobot work(RobotType type) {
         try {

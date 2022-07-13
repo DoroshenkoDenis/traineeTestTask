@@ -23,18 +23,17 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         RobotFactory factory = new RobotFactory();
-        String shootingNotify = "ROBOT ACTION: Shooting";
-        String strikingNotify = "ROBOT ACTION: Striking";
 
 //      old atomic robot needs new engine
         System.out.println("\n----- Fighting Atomic Robot -----");
-        AbstractRobot fightingAtomicRobot = factory.createRobot(FIGHTING, UNO, FLY, ATOMIC, 100, 1097, AUTOMATIC_RIFLE, shootingNotify, strikingNotify);
+        AbstractRobot fightingAtomicRobot = factory.createRobot(FIGHTING, UNO, FLY, ATOMIC, 100, 1000, AUTOMATIC_RIFLE);
         fightingAtomicRobot
+                .work(FIGHTING)
                 .work(FIGHTING);
 
 //      shows fuel decries and asks for refuel
         System.out.println("\n----- Fighting Diesel Robot -----");
-        AbstractRobot fightingDieselRobot = factory.createRobot(FIGHTING, R2D2, WALK, DIESEL, 100, 1993, AUTOMATIC_RIFLE, shootingNotify, strikingNotify);
+        AbstractRobot fightingDieselRobot = factory.createRobot(FIGHTING, R2D2, WALK, DIESEL, 100, 1997, AUTOMATIC_RIFLE);
         fightingDieselRobot
                 .work(FIGHTING)
                 .work(null)
@@ -42,11 +41,13 @@ public class Main {
                 .work(COOKING)
                 .work(FIGHTING)
                 .work(FIGHTING)
+                .work(FIGHTING)
+                .work(FIGHTING)
                 .work(FIGHTING);
 
 //      fighting robot changes weapons
         System.out.println("\n----- Fighting Electric Robot -----");
-        AbstractRobot fightingElectricRobot = factory.createRobot(FIGHTING, HAL9000, RIDE, ELECTRIC, 100, 1987, AUTOMATIC_RIFLE, shootingNotify, strikingNotify);
+        AbstractRobot fightingElectricRobot = factory.createRobot(FIGHTING, HAL9000, RIDE, ELECTRIC, 100, 1987, AUTOMATIC_RIFLE);
         fightingElectricRobot
                 .work(FIGHTING)
                 .setWeapon(null)
@@ -85,9 +86,9 @@ public class Main {
                 .work(COOKING)
                 .requestForFuel(ATOMIC);
 
-//      no more fantasy
+//      incorrect energy reserve
         System.out.println("\n----- Wilding Electric Robot -----");
-        AbstractRobot wildingElectricRobot = factory.createRobot(WILDING, TERMINATOR, WALK, ELECTRIC, 100, 1987);
+        AbstractRobot wildingElectricRobot = factory.createRobot(WILDING, TERMINATOR, WALK, ELECTRIC, -100, 1987);
         wildingElectricRobot
                 .work(WILDING)
                 .work(COOKING)
@@ -95,15 +96,14 @@ public class Main {
                 .work(WILDING)
                 .requestForFuel(ATOMIC);
 
-//      no more fantasy
+//      incorrect creationYear
         System.out.println("\n----- Wilding Atomic Robot -----");
-        AbstractRobot wildingAtomicRobot = factory.createRobot(WILDING, JUPITER, RIDE, ATOMIC, 100, 1987);
+        AbstractRobot wildingAtomicRobot = factory.createRobot(WILDING, JUPITER, RIDE, ATOMIC, 100, 2222);
         wildingAtomicRobot
                 .work(WILDING)
                 .work(FIGHTING)
                 .work(WILDING)
-                .work(WILDING)
-                .requestForFuel(ATOMIC);
+                .work(WILDING);
 
 //      no more fantasy
         System.out.println("\n----- Wilding Diesel Robot -----");
