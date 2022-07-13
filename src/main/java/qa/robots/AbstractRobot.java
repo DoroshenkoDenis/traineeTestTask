@@ -117,6 +117,7 @@ public abstract class AbstractRobot {
                         System.out.println("ROBOT: Thank you Master, you are the best!");
                         workCounter = 1;
                         energyStatus = "empty";
+                        energyReserve = 100;
                         break;
                     } else if (inputString.equalsIgnoreCase("N")) {
                         System.exit(0);
