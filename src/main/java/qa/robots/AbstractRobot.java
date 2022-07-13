@@ -274,8 +274,7 @@ public abstract class AbstractRobot {
                 System.out.println("SYSTEM: Incorrect value: creationYear = " + creationYear + ". The value cannot be greater than the current " + LocalDate.now().getYear() + " year! Please select other creation Year!");
                 Scanner in = new Scanner(System.in);
                 System.out.print("SYSTEM: Input new value... ");
-                String inputString = in.nextLine();
-                creationYear = Integer.parseInt(inputString);
+                creationYear = in.nextInt();
             } while (creationYear > LocalDate.now().getYear() || creationYear < 0);
         }
         this.creationYear = creationYear;
@@ -295,8 +294,7 @@ public abstract class AbstractRobot {
                 System.out.println("SYSTEM: Incorrect value: energyReserve = " + energyReserve + "! It must be from 1 to 100");
                 Scanner in = new Scanner(System.in);
                 System.out.print("SYSTEM: Input new value... ");
-                String inputString = in.nextLine();
-                energyReserve = Integer.parseInt(inputString);
+                energyReserve = in.nextInt();
             } while (energyReserve > 100 || energyReserve < 1);
         }
         this.energyReserve = energyReserve;
