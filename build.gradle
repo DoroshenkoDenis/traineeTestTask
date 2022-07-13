@@ -1,5 +1,13 @@
 plugins {
-    id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'qa.Main'
+}
+
+run {
+    standardInput = System.in
 }
 
 compileJava.options.encoding = 'UTF-8'
