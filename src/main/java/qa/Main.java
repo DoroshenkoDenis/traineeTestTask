@@ -24,67 +24,67 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         RobotFactory factory = new RobotFactory();
 
-////      old atomic robot needs new engine
-//        System.out.println("\n----- Fighting Atomic Robot -----");
-//        AbstractRobot fightingAtomicRobot = factory.createRobot(FIGHTING, UNO, FLY, ATOMIC, 100, 1000, AUTOMATIC_RIFLE);
-//        fightingAtomicRobot
-//                .work(FIGHTING)
-//                .work(FIGHTING);
-//
-////      shows fuel decries and asks for refuel
-//        System.out.println("\n----- Fighting Diesel Robot -----");
-//        AbstractRobot fightingDieselRobot = factory.createRobot(FIGHTING, R2D2, WALK, DIESEL, 100, 1997, AUTOMATIC_RIFLE);
-//        fightingDieselRobot
-//                .work(FIGHTING)
-//                .work(null)
-//                .work(FIGHTING)
-//                .work(COOKING)
-//                .work(FIGHTING)
-//                .work(FIGHTING)
-//                .work(FIGHTING)
-//                .work(FIGHTING)
-//                .work(FIGHTING);
-//
-////      fighting robot changes weapons
-//        System.out.println("\n----- Fighting Electric Robot -----");
-//        AbstractRobot fightingElectricRobot = factory.createRobot(FIGHTING, HAL9000, RIDE, ELECTRIC, 100, 1987, AUTOMATIC_RIFLE);
-//        fightingElectricRobot
-//                .work(FIGHTING)
-//                .setWeapon(null)
-//                .work(FIGHTING)
-//                .setWeapon(AUTOMATIC_RIFLE)
-//                .work(FIGHTING)
-//                .requestForFuel(ELECTRIC);
-//
-////      early refueling of robot
-//        System.out.println("\n----- Cooking Diesel Robot -----");
-//        AbstractRobot cookingDieselRobot = factory.createRobot(COOKING, WALLE, RIDE, DIESEL, 100, 1987);
-//        cookingDieselRobot
-//                .work(COOKING)
-//                .requestForFuel(DIESEL)
-//                .work(COOKING)
-//                .work(COOKING)
-//                .work(COOKING);
-//
-////      try to use the robot for other purposes
-//        System.out.println("\n----- Cooking Electric Robot -----");
-//        AbstractRobot cookingElectricRobot = factory.createRobot(COOKING, ASIMO, FLY, ELECTRIC, 100, 1987);
-//        cookingElectricRobot
-//                .work(COOKING)
-//                .work(FIGHTING)
-//                .work(WILDING)
-//                .work(null)
-//                .work(COOKING)
-//                .requestForFuel(ELECTRIC);
-//
-////      try to change fuelType
-//        System.out.println("\n----- Cooking Atomic Robot -----");
-//        AbstractRobot cookingAtomicRobot = factory.createRobot(COOKING, K9, WALK, ATOMIC, 100, 1987);
-//        cookingAtomicRobot
-//                .work(COOKING)
-//                .setEnergy(ELECTRIC)
-//                .work(COOKING)
-//                .requestForFuel(ATOMIC);
+//      old atomic robot needs new engine
+        System.out.println("\n----- Fighting Atomic Robot -----");
+        AbstractRobot fightingAtomicRobot = factory.createRobot(FIGHTING, UNO, FLY, ATOMIC, 100, 1000, AUTOMATIC_RIFLE);
+        fightingAtomicRobot
+                .work(FIGHTING)
+                .work(FIGHTING);
+
+//      shows fuel decries and asks for refuel
+        System.out.println("\n----- Fighting Diesel Robot -----");
+        AbstractRobot fightingDieselRobot = factory.createRobot(FIGHTING, R2D2, WALK, DIESEL, 100, 1997, AUTOMATIC_RIFLE);
+        fightingDieselRobot
+                .work(FIGHTING)
+                .work(null)
+                .work(FIGHTING)
+                .work(COOKING)
+                .work(FIGHTING)
+                .work(FIGHTING)
+                .work(FIGHTING)
+                .work(FIGHTING)
+                .work(FIGHTING);
+
+//      fighting robot changes weapons
+        System.out.println("\n----- Fighting Electric Robot -----");
+        AbstractRobot fightingElectricRobot = factory.createRobot(FIGHTING, HAL9000, RIDE, ELECTRIC, 100, 1987, AUTOMATIC_RIFLE);
+        fightingElectricRobot
+                .work(FIGHTING)
+                .setWeapon(null)
+                .work(FIGHTING)
+                .setWeapon(AUTOMATIC_RIFLE)
+                .work(FIGHTING)
+                .requestForFuel(ELECTRIC);
+
+//      early refueling of robot
+        System.out.println("\n----- Cooking Diesel Robot -----");
+        AbstractRobot cookingDieselRobot = factory.createRobot(COOKING, WALLE, RIDE, DIESEL, 100, 1987);
+        cookingDieselRobot
+                .work(COOKING)
+                .requestForFuel(DIESEL)
+                .work(COOKING)
+                .work(COOKING)
+                .work(COOKING);
+
+//      try to use the robot for other purposes
+        System.out.println("\n----- Cooking Electric Robot -----");
+        AbstractRobot cookingElectricRobot = factory.createRobot(COOKING, ASIMO, FLY, ELECTRIC, 100, 1987);
+        cookingElectricRobot
+                .work(COOKING)
+                .work(FIGHTING)
+                .work(WILDING)
+                .work(null)
+                .work(COOKING)
+                .requestForFuel(ELECTRIC);
+
+//      try to change fuelType
+        System.out.println("\n----- Cooking Atomic Robot -----");
+        AbstractRobot cookingAtomicRobot = factory.createRobot(COOKING, K9, WALK, ATOMIC, 100, 1987);
+        cookingAtomicRobot
+                .work(COOKING)
+                .setEnergy(ELECTRIC)
+                .work(COOKING)
+                .requestForFuel(ATOMIC);
 
 //      incorrect energy reserve
         System.out.println("\n----- Wilding Electric Robot -----");
