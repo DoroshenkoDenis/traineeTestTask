@@ -2,7 +2,7 @@ package qa.robots;
 
 import static qa.robots.RobotType.COOKING;
 
-//РЕАЛИЗОВАНО НАСЛЕДОВАНИЕ
+//реализовано наследование
 public class CookingRobot extends AbstractRobot {
 
     public CookingRobot(RobotType robotType, RobotName name, RobotMovement movement, RobotEnergy energy, int energyReserve, int creationYear) {

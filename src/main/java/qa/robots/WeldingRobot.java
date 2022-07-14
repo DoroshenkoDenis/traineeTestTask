@@ -1,7 +1,8 @@
 package qa.robots;
 
 import static qa.robots.RobotType.WILDING;
-//РЕАЛИЗОВАНО НАСЛЕДОВАНИЕ
+
+//реализовано наследование
 public class WeldingRobot extends AbstractRobot {
 
     public WeldingRobot(RobotType robotType, RobotName name, RobotMovement movement, RobotEnergy energy, int energyReserve, int creationYear) {

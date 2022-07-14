@@ -6,7 +6,7 @@ import static qa.robots.RobotTools.AUTOMATIC_RIFLE;
 import static qa.robots.RobotTools.SWORD;
 import static qa.robots.RobotType.FIGHTING;
 
-//РЕАЛИЗОВАНО НАСЛЕДОВАНИЕ
+//реализовано наследование
 public class FightingRobot extends AbstractRobot {
 
     public FightingRobot(RobotType robotType, RobotName name, RobotMovement movement, RobotEnergy energy, int energyReserve, int creationYear, RobotTools weapon) {
