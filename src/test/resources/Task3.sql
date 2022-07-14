@@ -4,4 +4,4 @@
 --                                             from orders)
 --           as ratio;
 
-SELECT COUNT(orders.promocode_id) / COUNT(orders.promocode_id is not null) result from orders;
+SELECT COUNT(orders.promocode_id) / COUNT(orders.order_id) result from orders;
