@@ -5,3 +5,4 @@
 --           as ratio;
 
 SELECT COUNT(orders.promocode_id) / COUNT(orders.order_id) result from orders;
+

@@ -28,10 +28,10 @@ public abstract class AbstractRobot {
     private RobotTools weapon;
     private static String energyStatus = "full";
 
-    private static final int costDieselPerAction = 15;
-    private static final int costElectricityPerAction = 10;
-    private static final int atomicEnergyReserve = 50;
-    private static final int minBatteryCharge = 20;
+    private static final int COST_DIESEL_PER_ACTION = 15;
+    private static final int COST_ELECTRICITY_PER_ACTION = 10;
+    private static final int ATOMIC_ENERGY_RESERVE = 50;
+    private static final int MIN_BATTERY_CHARGE = 20;
     private int workCounter = 1;
 
     public AbstractRobot(RobotType robotType, RobotName name, RobotMovement movement, RobotEnergy energy, int energyReserve, int creationYear, RobotTools weapon) {
@@ -71,31 +71,31 @@ public abstract class AbstractRobot {
         if (energyStatus.equals("empty")) {
             creationYear = LocalDate.now().getYear();
         }
-        return 100 - ((100 / atomicEnergyReserve) * (LocalDate.now().getYear() - creationYear));
+        return 100 - ((100 / ATOMIC_ENERGY_RESERVE) * (LocalDate.now().getYear() - creationYear));
     }
 
     /**
      * method for calculating diesel fuel
      * 'workCounter' - counter of actions performed by the robot
-     * 'costDieselPerAction' - energy cost per action as a percentage
+     * 'COST_DIESEL_PER_ACTION' - energy cost per action as a percentage
      *
      * @param energyReserve - capacity of the energy carrier or fuel tank
      * @return - remaining fuel as a percentage
      */
     public static int countDiesel(int energyReserve, int workCounter) {
-        return energyReserve - costDieselPerAction * workCounter;
+        return energyReserve - COST_DIESEL_PER_ACTION * workCounter;
     }
 
     /**
      * method for calculating electric charge
      * 'workCounter' - counter of actions performed by the robot
-     * 'costElectricityPerAction' - energy cost per action as a percentage
+     * 'COST_ELECTRICITY_PER_ACTION' - energy cost per action as a percentage
      *
      * @param energyReserve - capacity of the energy carrier or fuel tank
      * @return - remaining energy as a percentage
      */
     public static int countBatteryCharge(int energyReserve, int workCounter) {
-        return energyReserve - costElectricityPerAction * workCounter;
+        return energyReserve - COST_ELECTRICITY_PER_ACTION * workCounter;
     }
 
     /**
@@ -158,7 +158,7 @@ public abstract class AbstractRobot {
 
             case DIESEL:
                 int dieselFuel = countDiesel(energyReserve, workCounter);
-                if (dieselFuel < (costDieselPerAction)) {
+                if (dieselFuel < (COST_DIESEL_PER_ACTION)) {
                     requestForFuel(energyType);
                 } else {
                     System.out.println("ROBOT: I use " + energyType + " power and " + dieselFuel + "% energy left");
@@ -168,7 +168,7 @@ public abstract class AbstractRobot {
 
             case ELECTRIC:
                 int batteryCharge = countBatteryCharge(energyReserve, workCounter);
-                if (batteryCharge < (costElectricityPerAction + minBatteryCharge)) {
+                if (batteryCharge < (COST_ELECTRICITY_PER_ACTION + MIN_BATTERY_CHARGE)) {
                     requestForFuel(energyType);
                 } else {
                     System.out.println("ROBOT: I use " + energyType + " power and " + batteryCharge + "% energy left");
